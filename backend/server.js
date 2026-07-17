@@ -8,6 +8,7 @@ dotenv.config();
 const authRoutes = require('./routes/auth');
 const shipmentRoutes = require('./routes/shipments');
 const trackerRoutes = require('./routes/tracker');
+const auditLogsRoutes = require('./routes/auditLogs');
 const { initializeDatabase } = require('./db/init');
 
 const app = express();
@@ -23,6 +24,7 @@ initializeDatabase();
 app.use('/api/auth', authRoutes);
 app.use('/api/shipments', shipmentRoutes);
 app.use('/api/track', trackerRoutes);
+app.use('/api/audit-logs', auditLogsRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
